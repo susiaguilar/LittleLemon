@@ -6,6 +6,19 @@ from rest_framework.response import Response
 from .models import Booking, Menu
 from .serializers import userSerializer,menuSerializer,bookingSerializer
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, permission_classes
+
+
+
+@api_view()
+
+@permission_classes([IsAuthenticated])
+# @authentication_classes([TokenAuthentication])
+def msg(request):
+    return Response({"message":"This view is protected"})
+#token = Token.objects.create(User='susan')
+#print(token.key)
 
 # Create your views here.
 def index(request):
