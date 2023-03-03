@@ -2,6 +2,10 @@
 
 This is my Back-End Developer Capstone Project
 
+test_LittleLemon is my project name
+
+restaurant is app name 
+
 paths to test
 
 /restaurant      -Static HTML Content
