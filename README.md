@@ -4,13 +4,13 @@ This is my Back-End Developer Capstone Project
 
 paths to test
 
-/restaurant    ----Static HTML Content
+/restaurant                ----Static HTML Content
 
-/restaurant/menu/menu-items   ----MENU API
+/restaurant/menu/menu-items         ----MENU API
 
-/restaurant/booking/tables/   ----BOOKING API
+/restaurant/booking/tables/        ----BOOKING API
 
-/auth/users/   ----User Registration
+/auth/users/          ----User Registration
 
 
 SUPERUSER Credentials
