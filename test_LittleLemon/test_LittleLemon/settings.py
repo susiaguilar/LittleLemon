@@ -88,15 +88,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'susan',
-        'USER': 'sqluser',
-        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        'USER': 'sqluser',
+        'PASSWORD': 'password',
         'OPTIONS': {
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
 }
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -132,7 +135,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'restaurant/static/'
+
+STATICFILES_DIRS = [
+    "restaurant/static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -152,9 +159,21 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
    ),
-   'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAdminUser'
+   #'DEFAULT_PERMISSION_CLASSES': (
+    #    'rest_framework.permissions.IsAdminUser'
        #  'rest_framework.permissions.IsAuthenticated',
-   ),
+   #),
+   'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework_xml.renderers.XMLRenderer',
+    ],
+   "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.UserRateThrottle"
+    ],
+    'DEFAULT_THROTTLERATES' : {
+        'user': '5/minute',
+    },
+
 }
 
